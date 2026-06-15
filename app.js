@@ -82,16 +82,29 @@ function commitData(table) {
    2. SINGLE PAGE APPLICATION ROUTER (SPA CONFIG)
    ========================================================================== */
 function navigate(screenId, param = null) {
+    // 1. Ẩn tất cả các màn hình
     document.querySelectorAll('.screen').forEach(s => s.classList.add('d-none'));
-    document.getElementById(screenId).classList.remove('d-none');
     
+    // 2. Hiện màn hình được chọn
+    const targetScreen = document.getElementById(screenId);
+    if (targetScreen) {
+        targetScreen.classList.remove('d-none');
+    }
+    
+    // 3. Cập nhật class 'active' cho menu
     document.querySelectorAll('.navbar__link').forEach(link => link.classList.remove('active'));
-    if (screenId === 'screen-home') document.getElementById('nav-home').classList.add('active');
-    if (screenId === 'screen-about') document.getElementById('nav-about').classList.add('active');
-    if (screenId === 'screen-products') document.getElementById('nav-products').classList.add('active');
+    
+    // Ánh xạ ID màn hình với ID menu (giả sử bạn đặt id menu là 'nav-' + tên màn hình)
+    const menuId = screenId.replace('screen-', 'nav-');
+    const menuElement = document.getElementById(menuId);
+    if (menuElement) {
+        menuElement.classList.add('active');
+    }
 
+    // Cuộn trang lên đầu
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    // Gọi các hàm render dữ liệu nếu cần
     if (screenId === 'screen-products') renderProductsGrid(db.products);
     if (screenId === 'screen-detail') renderProductDetailPage(param);
     if (screenId === 'screen-cart') renderCartDashboard();
@@ -99,7 +112,6 @@ function navigate(screenId, param = null) {
     
     updateNavbarState();
 }
-
 /* ==========================================================================
    3. DYNAMIC PRODUCTS GRID ENGINE & SEARCH / FILTER
    ========================================================================== */
