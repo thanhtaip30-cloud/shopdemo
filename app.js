@@ -15,7 +15,7 @@ const initialProducts = [
         name: "Nước Ion Kiềm Fujiwa 450ml (Thùng 24 chai)", 
         price: 168000, 
         cat: "chai", 
-        image: "https://images.unsplash.com/photo-1551730359-5b91793486b0?auto=format&fit=crop&w=500&q=80", 
+        image: "https://cdnv2.tgdd.vn/bhx-static/bhx/Products/Images/2563/252179/bhx/252179_202411121043130061.jpg", 
         desc: "Sản phẩm đóng chai 450ml. Bổ sung vi khoáng tự nhiên, phù hợp mang theo hằng ngày, duy trì tính kiềm khỏe mạnh." 
     },
     { 
