@@ -7,7 +7,7 @@ const initialProducts = [
         name: "Nước Ion Kiềm Fujiwa 300ml (Thùng 24 chai)", 
         price: 144000, 
         cat: "chai", 
-        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=500&q=80", 
+        image: "https://bizweb.dktcdn.net/thumb/large/100/448/480/products/z4574312521122-e526e649fabce3e79d824ab1a1214651.jpg?v=1720596952967", 
         desc: "Dung tích 300ml nhỏ gọn tiện lợi mang theo đi học, đi làm. Giúp cân bằng lượng axit dư thừa, thanh lọc đào thải độc tố cơ thể." 
     },
     { 
