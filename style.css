@@ -239,25 +239,25 @@ a { text-decoration: none; color: inherit; transition: var(--transition-smooth);
     text-align:center;
 }
 
-.purchase-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-    margin-top:40px;
+.purchase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
 }
 
-.purchase-card{
-    background:#fff;
-    padding:40px 20px;
-    border-radius:16px;
-    text-decoration:none;
-    color:#222;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-    transition:.3s;
+.purchase-card {
+    text-align: center;
+    padding: 30px;
+    background: #f8fafc;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #333;
+    transition: 0.3s;
 }
 
-.purchase-card:hover{
-    transform:translateY(-8px);
+.purchase-card:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .purchase-card i{
