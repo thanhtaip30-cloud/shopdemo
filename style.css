@@ -234,3 +234,42 @@ a { text-decoration: none; color: inherit; transition: var(--transition-smooth);
     .detail-wrapper { grid-template-columns: 1fr; }
     .navbar__menu { display: none; } /* Ở bản này ẩn menu trên mobile cho gọn */
 }
+.purchase-section{
+    padding:60px 0;
+    text-align:center;
+}
+
+.purchase-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    margin-top:40px;
+}
+
+.purchase-card{
+    background:#fff;
+    padding:40px 20px;
+    border-radius:16px;
+    text-decoration:none;
+    color:#222;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.purchase-card:hover{
+    transform:translateY(-8px);
+}
+
+.purchase-card i{
+    font-size:50px;
+    color:#0b74d1;
+    margin-bottom:20px;
+}
+
+.purchase-card h3{
+    margin-bottom:10px;
+}
+
+.purchase-card p{
+    color:#666;
+}
