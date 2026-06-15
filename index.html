@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fujiwa Việt Nam - Hệ Thống Bán Hàng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="preloader" id="preloader">
+        <div class="preloader__content">
+            <div class="preloader__logo">FUJIWA</div>
+            <div class="preloader__line"></div>
+        </div>
+    </div>
+
+    <header class="navbar" id="navbar">
+        <div class="navbar__container">
+            <a href="#" class="navbar__logo" onclick="navigate('screen-home')">FUJIWA<span>VIỆT NAM</span></a>
+            
+            <div class="navbar__search">
+                <input type="text" id="searchInput" placeholder="Nhập tên sản phẩm để tìm...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <nav class="navbar__menu" id="navbarMenu">
+                <a href="#" class="navbar__link active" onclick="navigate('screen-home')">Trang chủ</a>
+                <a href="#" class="navbar__link d-none" id="nav-admin" onclick="navigate('screen-admin')">Quản trị</a>
+                <a href="#" class="navbar__link" id="nav-login" onclick="navigate('screen-login')">Đăng nhập</a>
+                <a href="#" class="navbar__link d-none" id="nav-user" onclick="logout()">Đăng xuất (<span id="current-username"></span>)</a>
+            </nav>
+
+            <div class="navbar__actions">
+                <div class="navbar__cart" id="cartIcon" onclick="navigate('screen-cart')">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="navbar__cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="app-root">
+        <div id="screen-home" class="screen">
+            <section class="hero-section" id="hero">
+                <div class="hero-section__parallax" style="background-image: url('https://images.unsplash.com/photo-1555116505-38ab61800975?auto=format&fit=crop&w=1920&q=80');"></div>
+                <div class="hero-section__overlay"></div>
+                <div class="hero-section__content reveal active">
+                    <div class="hero-section__brand-tag">Premium Alkaline Water</div>
+                    <h1 class="hero-section__title">FUJIWA VIỆT NAM</h1>
+                    <p class="hero-section__slogan">"Nâng tầm sức khỏe từ nguồn nước ion kiềm"</p>
+                    <div class="hero-section__cta">
+                        <a href="#products" class="btn btn--solid">Xem sản phẩm</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="products-section" id="products">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 class="section-header__title">Cửa Hàng Trực Tuyến</h2>
+                        <p class="section-header__subtitle">Chọn danh mục sản phẩm</p>
+                        <div class="section-header__line"></div>
+                    </div>
+
+                    <div class="filter-controls reveal">
+                        <select id="categoryFilter" class="fuji-select">
+                            <option value="all">Tất cả sản phẩm</option>
+                            <option value="chai">Chai nhỏ tiện lợi</option>
+                            <option value="binh">Bình dung tích lớn</option>
+                        </select>
+                    </div>
+
+                    <div class="products-grid" id="product-list"></div>
+                </div>
+            </section>
+
+            <section class="story-section">
+                <div class="container">
+                    <div class="story-section__block reveal">
+                        <div class="story-section__img">
+                            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80" alt="Fujiwa Story">
+                        </div>
+                        <div class="story-section__text">
+                            <span class="story-section__subtitle">Câu chuyện của chúng tôi</span>
+                            <h3 class="story-section__main-title">Tiên Phong Vì Sức Khỏe Cộng Đồng</h3>
+                            <p>Fujiwa Việt Nam tự hào mang đến các sản phẩm chăm sóc sức khỏe toàn diện từ công nghệ nước ion kiềm cao cấp. Ứng dụng dây chuyền sản xuất tự động và hệ thống điện phân độc quyền Nhật Bản, chúng tôi đồng hành cùng triệu người Việt trên hành trình nâng cao chất lượng cuộc sống bền vững.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="screen-detail" class="screen d-none container">
+            <div style="margin-top: 40px;">
+                <button class="btn btn--ghost" style="color:var(--color-primary); border-color:var(--color-primary);" onclick="navigate('screen-home')"><i class="fa-solid fa-arrow-left"></i> Quay lại cửa hàng</button>
+            </div>
+            <div class="detail-wrapper" id="detail-container">
+                </div>
+        </div>
+
+        <div id="screen-cart" class="screen d-none container">
+            <div class="section-header" style="margin-top: 40px; margin-bottom: 30px;">
+                <h2 class="section-header__title">Giỏ Hàng Của Bạn</h2>
+                <div class="section-header__line"></div>
+            </div>
+            <div class="cart-layout">
+                <div class="cart-list" id="cart-items">
+                    </div>
+                <div class="cart-summary">
+                    <h3>Tổng cộng</h3>
+                    <div class="total-price" id="cart-total">0 VNĐ</div>
+                    <button class="btn btn--solid w-100" onclick="checkout()">Tiến Hành Đặt Hàng</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-login" class="screen d-none container">
+            <div class="auth-wrapper">
+                <div class="auth-box">
+                    <h2 class="auth-title" id="auth-title">Đăng Nhập</h2>
+                    <div class="form-group">
+                        <input type="text" id="auth-user" class="form-input" placeholder="Tên đăng nhập">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="auth-pass" class="form-input" placeholder="Mật khẩu">
+                    </div>
+                    <button class="btn btn--solid w-100" id="btn-auth" onclick="handleAuth()">Đăng nhập</button>
+                    <p class="auth-switch" onclick="toggleAuthMode()">Chưa có tài khoản? Đăng ký ngay</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-admin" class="screen d-none container">
+            <div class="section-header" style="margin-top: 40px; margin-bottom: 30px;">
+                <h2 class="section-header__title">Quản Trị Hệ Thống</h2>
+                <div class="section-header__line"></div>
+            </div>
+
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <i class="fa-solid fa-sack-dollar icon-stat"></i>
+                    <h3>Tổng Doanh Thu</h3>
+                    <div class="stat-value text-primary" id="stat-revenue">0 VNĐ</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-boxes-packing icon-stat"></i>
+                    <h3>Tổng Đơn Hàng</h3>
+                    <div class="stat-value" id="stat-orders">0</div>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="admin-panel">
+                    <h3><i class="fa-solid fa-plus"></i> Thêm Sản Phẩm Mới</h3>
+                    <input type="text" id="add-name" class="form-input" placeholder="Tên sản phẩm">
+                    <input type="number" id="add-price" class="form-input" placeholder="Giá tiền (VNĐ)">
+                    <select id="add-cat" class="fuji-select" style="margin-bottom: 20px; width: 100%;">
+                        <option value="chai">Chai nhỏ cầm tay</option>
+                        <option value="binh">Bình gia đình lớn</option>
+                    </select>
+                    <input type="text" id="add-img" class="form-input" placeholder="URL Hình ảnh (hoặc bỏ trống)">
+                    <textarea id="add-desc" class="form-input" placeholder="Mô tả sản phẩm" rows="3"></textarea>
+                    <button class="btn btn--solid w-100" onclick="addProduct()">Lưu Sản Phẩm</button>
+                </div>
+                <div class="admin-panel">
+                    <h3><i class="fa-solid fa-list"></i> Danh Sách Sản Phẩm</h3>
+                    <div class="admin-product-list" id="admin-products">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__col">
+                <h4 class="footer__title">Fujiwa Việt Nam</h4>
+                <p class="footer__text">VPGD: 121/32 Đường Trung Mỹ Tây 13, Quận 12, TP. Hồ Chí Minh.</p>
+                <p class="footer__text">Hotline: 1900 8464</p>
+            </div>
+            <div class="footer__col">
+                <h4 class="footer__title">Chứng Nhận</h4>
+                <div class="footer__certifications">
+                    <div class="cert-badge">FDA Hoa Kỳ</div>
+                    <div class="cert-badge">ISO 13485:2016</div>
+                    <div class="cert-badge">HACCP</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container"><p>© 2026 Fujiwa Demo System. Đồ án quản lý bán hàng.</p></div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
