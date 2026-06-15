@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fujiwa Việt Nam - Nâng tầm sức khỏe</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -14,27 +12,35 @@
 
     <div class="preloader" id="preloader">
         <div class="preloader__content">
-            <div class="preloader__logo">FUJIWA</div>
-            <div class="preloader__line"></div>
+            <img src="https://bizweb.dktcdn.net/100/448/480/themes/852397/assets/logo.png?1753410847659" alt="Loading" style="height: 60px; animation: pulse 1.5s infinite;">
         </div>
     </div>
 
     <header class="navbar" id="navbar">
         <div class="navbar__container">
-            <a href="#" class="navbar__logo" onclick="navigate('screen-home')">FUJIWA<span>VIỆT NAM</span></a>
+            <a href="#" class="navbar__logo" onclick="navigate('screen-home')">
+                <img src="https://bizweb.dktcdn.net/100/448/480/themes/852397/assets/logo.png?1753410847659" alt="Fujiwa Logo">
+            </a>
             
             <nav class="navbar__menu" id="navbarMenu">
                 <a href="#" class="navbar__link active" id="nav-home" onclick="navigate('screen-home')">Trang chủ</a>
                 <a href="#" class="navbar__link" id="nav-about" onclick="navigate('screen-about')">Giới thiệu</a>
                 <a href="#" class="navbar__link" id="nav-products" onclick="navigate('screen-products')">Sản phẩm</a>
+                <a href="#" class="navbar__link" onclick="navigate('screen-home')">Tin tức</a>
+                <a href="#" class="navbar__link" onclick="navigate('screen-home')">Đại lý</a>
+                <a href="#" class="navbar__link" onclick="navigate('screen-home')">Liên hệ</a>
                 <a href="#" class="navbar__link d-none" id="nav-admin" onclick="navigate('screen-admin')">Quản trị</a>
-                <a href="#" class="navbar__link" id="nav-login" onclick="navigate('screen-login')">Đăng nhập</a>
-                <a href="#" class="navbar__link d-none" id="nav-user" onclick="logout()">Đăng xuất (<span id="current-username"></span>)</a>
             </nav>
 
             <div class="navbar__actions">
+                <a href="#" class="auth-link" id="nav-login" onclick="navigate('screen-login')">
+                    <i class="fa-regular fa-user"></i> Đăng nhập
+                </a>
+                <a href="#" class="auth-link d-none" id="nav-user" onclick="logout()">
+                    <i class="fa-solid fa-user-check"></i> <span id="current-username"></span> (Thoát)
+                </a>
                 <div class="navbar__cart" id="cartIcon" onclick="navigate('screen-cart')">
-                    <i class="fa-solid fa-bag-shopping"></i>
+                    <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
                     <span class="navbar__cart-count" id="cartCount">0</span>
                 </div>
             </div>
@@ -42,49 +48,73 @@
     </header>
 
     <main id="app-root">
-        
         <div id="screen-home" class="screen">
-            <section class="hero-section" id="hero">
-                <div class="hero-section__parallax" style="background-image: url('https://images.unsplash.com/photo-1555116505-38ab61800975?auto=format&fit=crop&w=1920&q=80');"></div>
-                <div class="hero-section__overlay"></div>
-                <div class="hero-section__content">
-                    <div class="hero-section__brand-tag">Premium Alkaline Water</div>
-                    <h1 class="hero-section__title">FUJIWA VIỆT NAM</h1>
-                    <p class="hero-section__slogan">"Nâng tầm sức khỏe từ nguồn nước ion kiềm"</p>
-                    <div class="hero-section__cta">
-                        <button class="btn btn--solid" onclick="navigate('screen-products')">Mua sắm ngay</button>
-                        <button class="btn btn--ghost" onclick="navigate('screen-about')">Tìm hiểu thêm</button>
+            
+            <section class="home-banners container">
+                <div class="banner-grid">
+                    <div class="banner-left">
+                        <img src="https://bizweb.dktcdn.net/100/448/480/themes/852397/assets/slider_1.jpg?1753410847659" alt="Fujiwa Hydrogen">
+                    </div>
+                    <div class="banner-right">
+                        <img src="https://bizweb.dktcdn.net/100/448/480/themes/852397/assets/slider_2.jpg?1753410847659" alt="Nước uống ion kiềm">
+                        <img src="https://bizweb.dktcdn.net/100/448/480/themes/852397/assets/slider_3.jpg?1753410847659" alt="Trở thành đại lý">
                     </div>
                 </div>
             </section>
 
-            <section class="welcome-features container">
-                <div class="section-header">
-                    <h2 class="section-header__title">Giá Trị Thượng Hạng</h2>
-                    <div class="section-header__line"></div>
+            <section class="stats-section container">
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <h2 class="stat-number">8+</h2>
+                        <p class="stat-text">Năm kinh nghiệm</p>
+                    </div>
+                    <div class="stat-box">
+                        <h2 class="stat-number">60M</h2>
+                        <p class="stat-text">Lít/năm công suất</p>
+                    </div>
+                    <div class="stat-box">
+                        <h2 class="stat-number">200+</h2>
+                        <p class="stat-text">Đại lý toàn quốc</p>
+                    </div>
+                    <div class="stat-box">
+                        <h2 class="stat-number">500K+</h2>
+                        <p class="stat-text">Khách hàng tin dùng</p>
+                    </div>
                 </div>
-                <div class="features-mini-grid">
-                    <div class="f-mini-card">
-                        <i class="fa-solid fa-droplet"></i>
-                        <h4>Thuần Khiết Nhật Bản</h4>
-                        <p>Công nghệ điện phân độc quyền giữ trọn khoáng chất.</p>
+            </section>
+
+            <section class="testimonials-section container">
+                <h2 class="section-title-dark">Khách hàng nói gì</h2>
+                <div class="testimonials-grid">
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">"Cả nhà tôi dùng nước ion kiềm Fujiwa hơn 2 năm. Vị nước nhẹ, dễ uống, bố mẹ giảm hẳn cảm giác ợ chua."</p>
+                        <p class="review-author">— Chị Mai Anh, TP.HCM</p>
                     </div>
-                    <div class="f-mini-card">
-                        <i class="fa-solid fa-heart-pulse"></i>
-                        <h4>Bảo Vệ Sức Khỏe</h4>
-                        <p>Cân bằng axit dư thừa, hỗ trợ đắc lực hệ tiêu hóa.</p>
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">"Đặt online giao nhanh, túi Hydrogen rất tiện mang đi tập gym. Sản phẩm chính hãng."</p>
+                        <p class="review-author">— Anh Tuấn, Hà Nội</p>
                     </div>
-                    <div class="f-mini-card">
-                        <i class="fa-solid fa-bolt-lightning"></i>
-                        <h4>Bù Khoáng Thần Tốc</h4>
-                        <p>Cụm phân tử nước siêu nhỏ thẩm thấu cực nhanh tế bào.</p>
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">"Mua bình 18L cho văn phòng dùng. Giá hợp lý, nhân viên tư vấn nhiệt tình."</p>
+                        <p class="review-author">— Chị Trang, Đà Nẵng</p>
                     </div>
+                    <div class="review-card">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="review-text">"Nước súc miệng Fujisalt êm dịu, mùi muối tự nhiên, dùng cho cả con nhỏ được."</p>
+                        <p class="review-author">— Anh Hoàng, Cần Thơ</p>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="btn btn--solid" onclick="navigate('screen-products')">Xem toàn bộ sản phẩm của chúng tôi</button>
                 </div>
             </section>
         </div>
 
         <div id="screen-about" class="screen d-none">
-            <section class="story-section container">
+            <section class="story-section container" style="padding-top: 40px;">
                 <div class="story-section__block">
                     <div class="story-section__img">
                         <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80" alt="Fujiwa Story">
@@ -95,46 +125,13 @@
                         <p>Fujiwa Việt Nam là biểu tượng cho sự kết hợp hoàn hảo giữa nguồn tài nguyên nước quý giá và công nghệ đỉnh cao từ Nhật Bản. Với hệ thống nhà máy khép kín vô trùng tại Củ Chi, chúng tôi không ngừng cải tiến nhằm mang đến giọt nước ion kiềm tốt nhất cho hàng triệu gia đình Việt Nam.</p>
                     </div>
                 </div>
-
-                <div class="journey-section">
-                    <div class="section-header">
-                        <h2 class="section-header__title">Hành Trình Giọt Nước Ion Kiềm</h2>
-                        <div class="section-header__line"></div>
-                    </div>
-                    <div class="journey-timeline">
-                        <div class="journey-step">
-                            <div class="journey-step__image">
-                                <img src="https://images.unsplash.com/photo-1508873696983-2df519f0397e?auto=format&fit=crop&w=400&q=80" alt="Bước 1">
-                                <div class="journey-step__num">01</div>
-                            </div>
-                            <h4>Nguồn Nước Ngầm</h4>
-                        </div>
-                        <div class="journey-step">
-                            <div class="journey-step__image">
-                                <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=400&q=80" alt="Bước 2">
-                                <div class="journey-step__num">02</div>
-                            </div>
-                            <h4>Lọc Đa Tầng Tháp</h4>
-                        </div>
-                        <div class="journey-step">
-                            <div class="journey-step__image">
-                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="Bước 3">
-                                <div class="journey-step__num">03</div>
-                            </div>
-                            <h4>Điện Phân Công Nghệ</h4>
-                        </div>
-                    </div>
-                </div>
             </section>
         </div>
 
         <div id="screen-products" class="screen d-none container">
-            <section class="products-section-page">
-                <div class="section-header">
-                    <h2 class="section-header__title">Danh Mục Sản Phẩm</h2>
-                    <div class="section-header__line"></div>
-                </div>
-
+            <section class="products-section-page" style="padding-top: 40px;">
+                <h2 class="section-title-dark" style="margin-bottom: 30px;">Danh Mục Sản Phẩm</h2>
+                
                 <div class="shop-utilities">
                     <div class="shop-search">
                         <input type="text" id="shopSearchInput" placeholder="Tìm sản phẩm fujiwa...">
@@ -148,7 +145,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="products-grid" id="product-list"></div>
             </section>
         </div>
@@ -161,10 +157,7 @@
         </div>
 
         <div id="screen-cart" class="screen d-none container">
-            <div class="section-header" style="margin-top: 30px;">
-                <h2 class="section-header__title">Hóa Đơn Giỏ Hàng</h2>
-                <div class="section-header__line"></div>
-            </div>
+            <h2 class="section-title-dark" style="margin: 40px 0 20px 0;">Giỏ Hàng Của Bạn</h2>
             <div class="cart-layout">
                 <div class="cart-list" id="cart-items"></div>
                 <div class="cart-summary">
@@ -181,18 +174,14 @@
                     <h2 class="auth-title" id="auth-title">Đăng Nhập</h2>
                     <input type="text" id="auth-user" class="form-input" placeholder="Tên tài khoản">
                     <input type="password" id="auth-pass" class="form-input" placeholder="Mật khẩu bảo mật">
-                    <button class="btn btn--solid w-100" id="btn-auth" onclick="handleAuth()">Xác nhận nhập hệ thống</button>
-                    <p class="auth-switch" onclick="toggleAuthMode()">Chưa có tài khoản đăng ký? Tạo ngay</p>
+                    <button class="btn btn--solid w-100" id="btn-auth" onclick="handleAuth()">Xác nhận đăng nhập</button>
+                    <p class="auth-switch" onclick="toggleAuthMode()">Chưa có tài khoản? Tạo ngay</p>
                 </div>
             </div>
         </div>
 
         <div id="screen-admin" class="screen d-none container">
-            <div class="section-header" style="margin-top: 30px;">
-                <h2 class="section-header__title">Bảng Điều Hành Doanh Thu</h2>
-                <div class="section-header__line"></div>
-            </div>
-
+            <h2 class="section-title-dark" style="margin: 40px 0 20px 0;">Bảng Điều Hành Doanh Thu</h2>
             <div class="admin-stats">
                 <div class="stat-card">
                     <i class="fa-solid fa-chart-line icon-stat"></i>
@@ -205,7 +194,6 @@
                     <div class="stat-value" id="stat-orders">0</div>
                 </div>
             </div>
-
             <div class="admin-grid">
                 <div class="admin-panel">
                     <h3>Thêm Hàng Hóa</h3>
@@ -230,8 +218,8 @@
     <footer class="footer">
         <div class="container footer__grid">
             <div class="footer__col">
-                <h4 class="footer__title">Fujiwa Việt Nam</h4>
-                <p class="footer__text"><i class="fa-solid fa-location-dot"></i> Nhà máy sản xuất: 286 Hồ Văn Tắng, Xã Tân Thạnh Tây, Huyện Củ Chi, TP. HCM.</p>
+                <img src="https://bizweb.dktcdn.net/100/448/480/themes/852397/assets/logo.png?1753410847659" alt="Fujiwa" style="height: 40px; margin-bottom: 15px; filter: brightness(0) invert(1);">
+                <p class="footer__text"><i class="fa-solid fa-location-dot"></i> Nhà máy sản xuất: 286 Hồ Văn Tắng, Xã Tân Thạnh Tây, Củ Chi, TP. HCM.</p>
                 <p class="footer__text"><i class="fa-solid fa-phone"></i> Tổng đài CSKH: 1900 8464</p>
             </div>
             <div class="footer__col">
