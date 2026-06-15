@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fujiwa Việt Nam - Hệ Thống Bán Hàng</title>
+    <title>Fujiwa Việt Nam - Nâng tầm sức khỏe</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,13 +23,10 @@
         <div class="navbar__container">
             <a href="#" class="navbar__logo" onclick="navigate('screen-home')">FUJIWA<span>VIỆT NAM</span></a>
             
-            <div class="navbar__search">
-                <input type="text" id="searchInput" placeholder="Nhập tên sản phẩm để tìm...">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-
             <nav class="navbar__menu" id="navbarMenu">
-                <a href="#" class="navbar__link active" onclick="navigate('screen-home')">Trang chủ</a>
+                <a href="#" class="navbar__link active" id="nav-home" onclick="navigate('screen-home')">Trang chủ</a>
+                <a href="#" class="navbar__link" id="nav-about" onclick="navigate('screen-about')">Giới thiệu</a>
+                <a href="#" class="navbar__link" id="nav-products" onclick="navigate('screen-products')">Sản phẩm</a>
                 <a href="#" class="navbar__link d-none" id="nav-admin" onclick="navigate('screen-admin')">Quản trị</a>
                 <a href="#" class="navbar__link" id="nav-login" onclick="navigate('screen-login')">Đăng nhập</a>
                 <a href="#" class="navbar__link d-none" id="nav-user" onclick="logout()">Đăng xuất (<span id="current-username"></span>)</a>
@@ -45,76 +42,135 @@
     </header>
 
     <main id="app-root">
+        
         <div id="screen-home" class="screen">
             <section class="hero-section" id="hero">
                 <div class="hero-section__parallax" style="background-image: url('https://images.unsplash.com/photo-1555116505-38ab61800975?auto=format&fit=crop&w=1920&q=80');"></div>
                 <div class="hero-section__overlay"></div>
-                <div class="hero-section__content reveal active">
+                <div class="hero-section__content">
                     <div class="hero-section__brand-tag">Premium Alkaline Water</div>
                     <h1 class="hero-section__title">FUJIWA VIỆT NAM</h1>
                     <p class="hero-section__slogan">"Nâng tầm sức khỏe từ nguồn nước ion kiềm"</p>
                     <div class="hero-section__cta">
-                        <a href="#products" class="btn btn--solid">Xem sản phẩm</a>
+                        <button class="btn btn--solid" onclick="navigate('screen-products')">Mua sắm ngay</button>
+                        <button class="btn btn--ghost" onclick="navigate('screen-about')">Tìm hiểu thêm</button>
                     </div>
                 </div>
             </section>
 
-            <section class="products-section" id="products">
-                <div class="container">
-                    <div class="section-header reveal">
-                        <h2 class="section-header__title">Cửa Hàng Trực Tuyến</h2>
-                        <p class="section-header__subtitle">Chọn danh mục sản phẩm</p>
+            <section class="welcome-features container">
+                <div class="section-header">
+                    <h2 class="section-header__title">Giá Trị Thượng Hạng</h2>
+                    <div class="section-header__line"></div>
+                </div>
+                <div class="features-mini-grid">
+                    <div class="f-mini-card">
+                        <i class="fa-solid fa-droplet"></i>
+                        <h4>Thuần Khiết Nhật Bản</h4>
+                        <p>Công nghệ điện phân độc quyền giữ trọn khoáng chất.</p>
+                    </div>
+                    <div class="f-mini-card">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <h4>Bảo Vệ Sức Khỏe</h4>
+                        <p>Cân bằng axit dư thừa, hỗ trợ đắc lực hệ tiêu hóa.</p>
+                    </div>
+                    <div class="f-mini-card">
+                        <i class="fa-solid fa-bolt-lightning"></i>
+                        <h4>Bù Khoáng Thần Tốc</h4>
+                        <p>Cụm phân tử nước siêu nhỏ thẩm thấu cực nhanh tế bào.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="screen-about" class="screen d-none">
+            <section class="story-section container">
+                <div class="story-section__block">
+                    <div class="story-section__img">
+                        <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80" alt="Fujiwa Story">
+                    </div>
+                    <div class="story-section__text">
+                        <span class="story-section__subtitle">Câu chuyện của chúng tôi</span>
+                        <h3 class="story-section__main-title">Tiên Phong Vì Sức Khỏe Cộng Đồng</h3>
+                        <p>Fujiwa Việt Nam là biểu tượng cho sự kết hợp hoàn hảo giữa nguồn tài nguyên nước quý giá và công nghệ đỉnh cao từ Nhật Bản. Với hệ thống nhà máy khép kín vô trùng tại Củ Chi, chúng tôi không ngừng cải tiến nhằm mang đến giọt nước ion kiềm tốt nhất cho hàng triệu gia đình Việt Nam.</p>
+                    </div>
+                </div>
+
+                <div class="journey-section">
+                    <div class="section-header">
+                        <h2 class="section-header__title">Hành Trình Giọt Nước Ion Kiềm</h2>
                         <div class="section-header__line"></div>
                     </div>
-
-                    <div class="filter-controls reveal">
-                        <select id="categoryFilter" class="fuji-select">
-                            <option value="all">Tất cả sản phẩm</option>
-                            <option value="chai">Chai nhỏ tiện lợi</option>
-                            <option value="binh">Bình dung tích lớn</option>
-                        </select>
+                    <div class="journey-timeline">
+                        <div class="journey-step">
+                            <div class="journey-step__image">
+                                <img src="https://images.unsplash.com/photo-1508873696983-2df519f0397e?auto=format&fit=crop&w=400&q=80" alt="Bước 1">
+                                <div class="journey-step__num">01</div>
+                            </div>
+                            <h4>Nguồn Nước Ngầm</h4>
+                        </div>
+                        <div class="journey-step">
+                            <div class="journey-step__image">
+                                <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=400&q=80" alt="Bước 2">
+                                <div class="journey-step__num">02</div>
+                            </div>
+                            <h4>Lọc Đa Tầng Tháp</h4>
+                        </div>
+                        <div class="journey-step">
+                            <div class="journey-step__image">
+                                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="Bước 3">
+                                <div class="journey-step__num">03</div>
+                            </div>
+                            <h4>Điện Phân Công Nghệ</h4>
+                        </div>
                     </div>
-
-                    <div class="products-grid" id="product-list"></div>
                 </div>
             </section>
+        </div>
 
-            <section class="story-section">
-                <div class="container">
-                    <div class="story-section__block reveal">
-                        <div class="story-section__img">
-                            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=800&q=80" alt="Fujiwa Story">
-                        </div>
-                        <div class="story-section__text">
-                            <span class="story-section__subtitle">Câu chuyện của chúng tôi</span>
-                            <h3 class="story-section__main-title">Tiên Phong Vì Sức Khỏe Cộng Đồng</h3>
-                            <p>Fujiwa Việt Nam tự hào mang đến các sản phẩm chăm sóc sức khỏe toàn diện từ công nghệ nước ion kiềm cao cấp. Ứng dụng dây chuyền sản xuất tự động và hệ thống điện phân độc quyền Nhật Bản, chúng tôi đồng hành cùng triệu người Việt trên hành trình nâng cao chất lượng cuộc sống bền vững.</p>
-                        </div>
+        <div id="screen-products" class="screen d-none container">
+            <section class="products-section-page">
+                <div class="section-header">
+                    <h2 class="section-header__title">Danh Mục Sản Phẩm</h2>
+                    <div class="section-header__line"></div>
+                </div>
+
+                <div class="shop-utilities">
+                    <div class="shop-search">
+                        <input type="text" id="shopSearchInput" placeholder="Tìm sản phẩm fujiwa...">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="shop-filter">
+                        <select id="categoryFilter" class="fuji-select">
+                            <option value="all">Tất cả sản phẩm</option>
+                            <option value="chai">Dòng chai nhỏ cầm tay</option>
+                            <option value="binh">Dòng bình lớn gia đình</option>
+                        </select>
                     </div>
                 </div>
+
+                <div class="products-grid" id="product-list"></div>
             </section>
         </div>
 
         <div id="screen-detail" class="screen d-none container">
-            <div style="margin-top: 40px;">
-                <button class="btn btn--ghost" style="color:var(--color-primary); border-color:var(--color-primary);" onclick="navigate('screen-home')"><i class="fa-solid fa-arrow-left"></i> Quay lại cửa hàng</button>
+            <div style="margin-top: 30px;">
+                <button class="btn-action-back" onclick="navigate('screen-products')"><i class="fa-solid fa-chevron-left"></i> Quay lại danh mục</button>
             </div>
-            <div class="detail-wrapper" id="detail-container">
-                </div>
+            <div class="detail-wrapper" id="detail-container"></div>
         </div>
 
         <div id="screen-cart" class="screen d-none container">
-            <div class="section-header" style="margin-top: 40px; margin-bottom: 30px;">
-                <h2 class="section-header__title">Giỏ Hàng Của Bạn</h2>
+            <div class="section-header" style="margin-top: 30px;">
+                <h2 class="section-header__title">Hóa Đơn Giỏ Hàng</h2>
                 <div class="section-header__line"></div>
             </div>
             <div class="cart-layout">
-                <div class="cart-list" id="cart-items">
-                    </div>
+                <div class="cart-list" id="cart-items"></div>
                 <div class="cart-summary">
-                    <h3>Tổng cộng</h3>
-                    <div class="total-price" id="cart-total">0 VNĐ</div>
-                    <button class="btn btn--solid w-100" onclick="checkout()">Tiến Hành Đặt Hàng</button>
+                    <h3>Chi tiết thanh toán</h3>
+                    <div class="total-price" id="cart-total">0đ</div>
+                    <button class="btn btn--solid w-100" onclick="checkout()">Xác Nhận Đặt Hàng</button>
                 </div>
             </div>
         </div>
@@ -123,54 +179,49 @@
             <div class="auth-wrapper">
                 <div class="auth-box">
                     <h2 class="auth-title" id="auth-title">Đăng Nhập</h2>
-                    <div class="form-group">
-                        <input type="text" id="auth-user" class="form-input" placeholder="Tên đăng nhập">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" id="auth-pass" class="form-input" placeholder="Mật khẩu">
-                    </div>
-                    <button class="btn btn--solid w-100" id="btn-auth" onclick="handleAuth()">Đăng nhập</button>
-                    <p class="auth-switch" onclick="toggleAuthMode()">Chưa có tài khoản? Đăng ký ngay</p>
+                    <input type="text" id="auth-user" class="form-input" placeholder="Tên tài khoản">
+                    <input type="password" id="auth-pass" class="form-input" placeholder="Mật khẩu bảo mật">
+                    <button class="btn btn--solid w-100" id="btn-auth" onclick="handleAuth()">Xác nhận nhập hệ thống</button>
+                    <p class="auth-switch" onclick="toggleAuthMode()">Chưa có tài khoản đăng ký? Tạo ngay</p>
                 </div>
             </div>
         </div>
 
         <div id="screen-admin" class="screen d-none container">
-            <div class="section-header" style="margin-top: 40px; margin-bottom: 30px;">
-                <h2 class="section-header__title">Quản Trị Hệ Thống</h2>
+            <div class="section-header" style="margin-top: 30px;">
+                <h2 class="section-header__title">Bảng Điều Hành Doanh Thu</h2>
                 <div class="section-header__line"></div>
             </div>
 
             <div class="admin-stats">
                 <div class="stat-card">
-                    <i class="fa-solid fa-sack-dollar icon-stat"></i>
-                    <h3>Tổng Doanh Thu</h3>
-                    <div class="stat-value text-primary" id="stat-revenue">0 VNĐ</div>
+                    <i class="fa-solid fa-chart-line icon-stat"></i>
+                    <h3>Doanh Số Tích Lũy</h3>
+                    <div class="stat-value text-primary" id="stat-revenue">0đ</div>
                 </div>
                 <div class="stat-card">
-                    <i class="fa-solid fa-boxes-packing icon-stat"></i>
-                    <h3>Tổng Đơn Hàng</h3>
+                    <i class="fa-solid fa-receipt icon-stat"></i>
+                    <h3>Hóa Đơn Đã Xác Nhận</h3>
                     <div class="stat-value" id="stat-orders">0</div>
                 </div>
             </div>
 
             <div class="admin-grid">
                 <div class="admin-panel">
-                    <h3><i class="fa-solid fa-plus"></i> Thêm Sản Phẩm Mới</h3>
-                    <input type="text" id="add-name" class="form-input" placeholder="Tên sản phẩm">
-                    <input type="number" id="add-price" class="form-input" placeholder="Giá tiền (VNĐ)">
-                    <select id="add-cat" class="fuji-select" style="margin-bottom: 20px; width: 100%;">
-                        <option value="chai">Chai nhỏ cầm tay</option>
-                        <option value="binh">Bình gia đình lớn</option>
+                    <h3>Thêm Hàng Hóa</h3>
+                    <input type="text" id="add-name" class="form-input" placeholder="Tên sản phẩm mới">
+                    <input type="number" id="add-price" class="form-input" placeholder="Giá niêm yết (VNĐ)">
+                    <select id="add-cat" class="fuji-select" style="width: 100%; margin-bottom: 20px; border-radius: 8px;">
+                        <option value="chai">Chai nhỏ</option>
+                        <option value="binh">Bình lớn gia đình</option>
                     </select>
-                    <input type="text" id="add-img" class="form-input" placeholder="URL Hình ảnh (hoặc bỏ trống)">
-                    <textarea id="add-desc" class="form-input" placeholder="Mô tả sản phẩm" rows="3"></textarea>
-                    <button class="btn btn--solid w-100" onclick="addProduct()">Lưu Sản Phẩm</button>
+                    <input type="text" id="add-img" class="form-input" placeholder="Đường dẫn ảnh sản phẩm (URL)">
+                    <textarea id="add-desc" class="form-input" placeholder="Mô tả công dụng đặc tính sản phẩm" rows="3"></textarea>
+                    <button class="btn btn--solid w-100" onclick="addProduct()">Đưa vào kho hàng</button>
                 </div>
                 <div class="admin-panel">
-                    <h3><i class="fa-solid fa-list"></i> Danh Sách Sản Phẩm</h3>
-                    <div class="admin-product-list" id="admin-products">
-                        </div>
+                    <h3>Danh Mục Hàng Hóa Đang Quản Lý</h3>
+                    <div class="admin-product-list" id="admin-products"></div>
                 </div>
             </div>
         </div>
@@ -180,11 +231,11 @@
         <div class="container footer__grid">
             <div class="footer__col">
                 <h4 class="footer__title">Fujiwa Việt Nam</h4>
-                <p class="footer__text">VPGD: 121/32 Đường Trung Mỹ Tây 13, Quận 12, TP. Hồ Chí Minh.</p>
-                <p class="footer__text">Hotline: 1900 8464</p>
+                <p class="footer__text"><i class="fa-solid fa-location-dot"></i> Nhà máy sản xuất: 286 Hồ Văn Tắng, Xã Tân Thạnh Tây, Huyện Củ Chi, TP. HCM.</p>
+                <p class="footer__text"><i class="fa-solid fa-phone"></i> Tổng đài CSKH: 1900 8464</p>
             </div>
             <div class="footer__col">
-                <h4 class="footer__title">Chứng Nhận</h4>
+                <h4 class="footer__title">Quy Chuẩn Quốc Tế</h4>
                 <div class="footer__certifications">
                     <div class="cert-badge">FDA Hoa Kỳ</div>
                     <div class="cert-badge">ISO 13485:2016</div>
@@ -193,7 +244,7 @@
             </div>
         </div>
         <div class="footer__bottom">
-            <div class="container"><p>© 2026 Fujiwa Demo System. Đồ án quản lý bán hàng.</p></div>
+            <div class="container"><p>© 2026 Hệ thống cổng thông tin Fujiwa E-Commerce Thương Mại Điện Tử.</p></div>
         </div>
     </footer>
 
