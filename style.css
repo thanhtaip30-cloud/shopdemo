@@ -132,6 +132,45 @@ a { text-decoration: none; color: inherit; transition: var(--transition-smooth);
 .footer__links li a:hover { color: var(--color-primary); }
 .footer__socials a { font-weight: 600; color: var(--color-primary); }
 
+/* --- BỔ SUNG PHẦN GIỚI THIỆU (STORY SECTION) --- */
+.story-section__block { 
+    display: flex; 
+    align-items: center; 
+    gap: 40px; 
+    margin-bottom: 50px; 
+}
+.story-section__img { 
+    flex: 1; 
+    min-width: 300px; 
+}
+.story-section__img img { 
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px; 
+    display: block; 
+}
+.story-section__text { 
+    flex: 1; 
+}
+.story-section__text h3 { 
+    font-size: 1.8rem; 
+    color: #001f3f; 
+    margin-bottom: 15px; 
+}
+.story-section__text p { 
+    font-size: 1rem; 
+    line-height: 1.7; 
+    color: #555; 
+}
+
+/* Responsive: Trên mobile ảnh sẽ nằm trên, chữ nằm dưới */
+@media (max-width: 992px) {
+    .story-section__block { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+}
+
 @media (max-width: 992px) {
     .footer__grid { grid-template-columns: 1fr; }
 }
